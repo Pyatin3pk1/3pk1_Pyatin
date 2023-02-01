@@ -15,14 +15,13 @@ namespace pz_1
           for (int i = 0; i < a.Length; i++)
           {
 
-              a[i] = rmd.Next(0, 1000000);
+              a[i] = rmd.Next(0, 100000);
           }
           Timing objT = new Timing();
           Stopwatch stpWatch = new Stopwatch();
           objT.StartTime();
           stpWatch.Start();
           SimpleSearch(a, n);
-
           stpWatch.Stop();
           objT.StopTime();
           Console.WriteLine("Простой поиск StopWatch: " + stpWatch.Elapsed.ToString());
@@ -41,7 +40,6 @@ namespace pz_1
           static int SimpleSearch(int[] a, int x)
           {
 
-
               int i = 0;
               while (i < a.Length && a[i] != x)
                   i++;
@@ -49,8 +47,6 @@ namespace pz_1
                   return i;
               else
                   return -1;
-
-
           }
           static int SearchBinary(int[] a, int x)
           {
@@ -73,28 +69,28 @@ namespace pz_1
       internal class Timing
       {
           TimeSpan duration;
-          TimeSpan[] threads;
+          TimeSpan[] a;
           public Timing()
           {
               duration = new TimeSpan(0);
-              threads = new TimeSpan[Process.GetCurrentProcess().
+              a = new TimeSpan[Process.GetCurrentProcess().
               Threads.Count];
           }
           public void StartTime()
           {
               GC.Collect();
               GC.WaitForPendingFinalizers();
-              for (int i = 0; i < threads.Length; i++)
-                  threads[i] = Process.GetCurrentProcess().Threads[i].
+              for (int i = 0; i < a.Length; i++)
+                 a[i] = Process.GetCurrentProcess().Threads[i].
                   UserProcessorTime;
           }
           public void StopTime()
           {
               TimeSpan tmp;
-              for (int i = 0; i < threads.Length; i++)
+              for (int i = 0; i < a.Length; i++)
               {
                   tmp = Process.GetCurrentProcess().Threads[i].
-                  UserProcessorTime.Subtract(threads[i]);
+                  UserProcessorTime.Subtract(a[i]);
                   if (tmp > TimeSpan.Zero)
                       duration = tmp;
               }
