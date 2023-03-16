@@ -51,16 +51,16 @@ namespace BinaryTree
         }
         public static void CountNam(Node root)
         {
-            int pozitivecount = 0, negativecount = 0;
+            int pol = 0, otr = 0;
 
             for (int i = 0; i < root.Length; i++)
             {
                 if (root[i] >= 0)
-                    pozitivecount++;
+                    pol++;
                 else
-                    negativecount++;
+                    otr++;
             }
-            Console.WriteLine($"Количество положительных чисел: {pozitivecount}\nКоличество отрицательных чисел: {negativecount}");
+            Console.WriteLine($"Количество положительных чисел: {pol}\nКоличество отрицательных чисел: {otr}");
             Console.ReadLine();
         }
 
