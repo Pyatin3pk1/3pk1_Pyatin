@@ -26,7 +26,7 @@ namespace pz_2
 
                     if (a[i, j] != 1)
                     {
-                        for (int w = 0; w < n; w++)
+                        for (int k = 0; k < n; k++)
                         {
                             if (j != 0)
                             {
@@ -36,14 +36,26 @@ namespace pz_2
                                 }
                                 else
                                 {
-                                    if (a[w, j] == 1) a[w, j] = 1;
+                                    if (a[k, j] == 1) a[k, j] = 1;
                                     else
                                     {
-                                        if (a[w, w - 1] == 1) a[i, j] = 1;
+                                        if (a[k, i - 1] == 1) a[i, j] = 1;
                                     }
                                 }
                             }
                         }
+                    }
+                }
+            }
+
+            for (int k = 0; k < n; k++)
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        
+                        a[i, k] = a[k, j];
                     }
                 }
             }
@@ -55,6 +67,10 @@ namespace pz_2
                 }
                 Console.WriteLine();
             }
+
+           
+        
+            
 
         }
     }
