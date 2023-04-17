@@ -51,11 +51,13 @@ namespace BinaryTree
         }
         public static void CountNam(Node root)
         {
+            left != null;
+            CountNam(root.Left) ;
             int pol = 0, otr = 0;
 
-            for (int i = 0; i < root.Length; i++)
+            for (int i = 0; i < CountNam(root.Left).Length; i++)
             {
-                if (root[i] >= 0)
+                if (CountNam(root.Left)[i] >= 0)
                     pol++;
                 else
                     otr++;

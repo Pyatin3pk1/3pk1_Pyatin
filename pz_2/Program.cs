@@ -9,43 +9,54 @@ namespace pz_2
     {
         static void Main(string[] args)
         {
-               bool[,] M = new bool[5, 5]
-               {
-                  {false, true, true, false, false}, 
-                  {false, false, false, true, false},
-                  {false, true, false, false, false},
-                  {false, false, true, false, false},
-                  {false, false, false, true, false}
-               };
-               Graph graph = new Graph(5, M);
-               graph.Depth(1);
+            int n = 5;
+            int[,] a = new int[,]
+            {
+               {0, 1, 1, 0, 0}, 
+               {0, 0, 0, 1, 0},
+               {0, 1, 0, 0, 1},
+               {0, 0, 1, 0, 0},
+               {0, 0, 0, 1, 0}
+            };
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (i == j) { a[i, j] = 1; }
+
+                    if (a[i, j] != 1)
+                    {
+                        for (int w = 0; w < n; w++)
+                        {
+                            if (j != 0)
+                            {
+                                if (a[j, j - 1] == 1)
+                                {
+                                    a[i, j] = 1;
+                                }
+                                else
+                                {
+                                    if (a[w, j] == 1) a[w, j] = 1;
+                                    else
+                                    {
+                                        if (a[w, w - 1] == 1) a[i, j] = 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(a[i, j]);
+                }
+                Console.WriteLine();
+            }
+
         }
     }
-        public class Graph
-        {
-            private int size; 
-            private bool[,] adjacency; 
-            private bool[] vector; 
-            public int Size { get; set; }
-            public bool[,] Adjacency { get; set; }
-            public bool[] Vector { get; set; }
-            public Graph(int size, bool[,] G) 
-            {
-                Adjacency = new bool[size, size]; 
-                Adjacency = G;
-                Vector = new bool[size];
-                for (int i = 0; i < size; i++)
-                    Vector[i] = false; 
-                Size = size;
-            }
-            public void Depth(int i) 
-            {
-                Vector[i] = true; 
-                Console.Write("{0}" + ' ', i); 
-                for (int k = 0; k < Size; k++) 
-                     if (Adjacency[i, k] && !(Vector[k]))
-                    Depth(k); 
-            }
-        }
     
 }
