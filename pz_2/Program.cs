@@ -18,8 +18,7 @@ namespace pz_2
                {0, 0, 1, 0, 0},
                {0, 0, 0, 1, 0}
             };
-            
-            
+
             for (int k = 0; k < n; k++) 
             {
                 for (int i = 0; i < n; i++) 
@@ -33,9 +32,6 @@ namespace pz_2
                     }
                 }
             }
-
-           
-
             Console.Write("Матрица достижимости:\n");
             for (int i = 0; i < n; i++)
             {
