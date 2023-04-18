@@ -37,27 +37,6 @@ namespace BinaryTree
 
             return root;
         }
-
-        public static void GetTreeData(Node root)
-        {
-            if (root != null)
-            { 
-                Console.WriteLine(root.Info);
-                GetTreeData(root.Left);
-                GetTreeData(root.Right); 
-            }
-            //добавить три метода из пз3
-           
-        }
-        private void Otr(Node root, List<int> result)
-        {
-            if (root == null)
-                return;
-            if (root.data < 0)
-                result.Add(root.data);
-            Otr(root.left, result);
-            Otr(root.right, result);
-        }
         public static void CountNam(Node root)
         {
             left != null;
