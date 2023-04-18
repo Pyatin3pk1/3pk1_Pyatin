@@ -4,18 +4,18 @@
     {
         static void Main(string[] args)
         {
-            User u1 = new User() { Name = "Ivan" };
-            User u2 = (User)u1.Clone();
-            u1.Name = "Sergey";
-            Console.WriteLine(u1.Name + "|" + u2.Name);
-            Student st  = new Student() { Name = "Petr"};
+            //User u1 = new Employee() { Name = "Ivan" };
+            //User u2 = (Employee)u1.Clone();
+            //u1.Name = "Sergey";
+            //Console.WriteLine(u1.Name + "|" + u2.Name);
+            //Student st  = new Student() { Name = "Petr"};
 
-            ICloneable clone = u2;
-            clone = st;
+            //ICloneable clone = u2;
+            //clone = st;
 
-            ICloneable[] clones = {u1, u2, st };
-            foreach( ICloneable i in clones)
-            Console.WriteLine(i);  
+            //ICloneable[] clones = {u1, u2, st };
+            //foreach( ICloneable i in clones)
+            //Console.WriteLine(i);  
             //Console.WriteLine(u1.Name +"|" + u2.Name);
 
             //u1 = (User)u2.Clone();
